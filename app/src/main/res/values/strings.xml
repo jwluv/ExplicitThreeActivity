@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ExplicitThreeActivity</string>
+    <string name="buttonFirstToSecondActivity">Go to Second Activity</string>
+    <string name="buttonSecondToThirdActivity">Go to Third Activity</string>
+    <string name="buttonThirdToFirstActivity">Go to First Activity</string>
+</resources>
