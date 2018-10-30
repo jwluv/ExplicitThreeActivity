@@ -18,10 +18,24 @@
             android:text="Third Activity"
             android:textAlignment="center" />
 
+        <EditText
+            android:id="@+id/editTextThirdValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/editTextThirdValue"
+            android:inputType="textPersonName" />
+
         <Button
             android:id="@+id/buttonThirdToFirstActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/buttonThirdToFirstActivity" />
+
+        <TextView
+            android:id="@+id/textViewThirdReceivedValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

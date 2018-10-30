@@ -18,10 +18,24 @@
             android:text="First Activity"
             android:textAlignment="center" />
 
+        <EditText
+            android:id="@+id/editTextFirstValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/editTextFirstValue"
+            android:inputType="textPersonName" />
+
         <Button
             android:id="@+id/buttonFirstToSecondActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/buttonFirstToSecondActivity" />
+
+        <TextView
+            android:id="@+id/textViewFirstReceivedValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

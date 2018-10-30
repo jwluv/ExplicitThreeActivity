@@ -3,4 +3,7 @@
     <string name="buttonFirstToSecondActivity">Go to Second Activity</string>
     <string name="buttonSecondToThirdActivity">Go to Third Activity</string>
     <string name="buttonThirdToFirstActivity">Go to First Activity</string>
+    <string name="editTextFirstValue">Add value to send</string>
+    <string name="editTextSecondValue">Add value to send</string>
+    <string name="editTextThirdValue">Add value to send</string>
 </resources>
