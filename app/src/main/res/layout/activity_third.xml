@@ -33,9 +33,9 @@
             android:text="@string/buttonThirdToFirstActivity" />
 
         <TextView
-            android:id="@+id/textViewThirdReceivedValue"
+            android:id="@+id/textViewThirdResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center" />
+            android:text="@string/textViewThirdResult" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

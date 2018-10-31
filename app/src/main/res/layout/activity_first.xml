@@ -33,9 +33,10 @@
             android:text="@string/buttonFirstToSecondActivity" />
 
         <TextView
-            android:id="@+id/textViewFirstReceivedValue"
+            android:id="@+id/textViewFirstResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/textViewFirstResult"
             android:textAlignment="center" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,8 @@
 package com.lyna.www.explicitthreeactivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +16,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     Button buttonSecondToThird;
     EditText editTextSecondValue;
-    TextView textViewSecondReceivedValue;
+    TextView textViewSecondResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +27,11 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         buttonSecondToThird.setOnClickListener(this);
 
         editTextSecondValue = (EditText)findViewById(R.id.editTextSecondValue);
-        textViewSecondReceivedValue = (TextView)findViewById(R.id.textViewSecondReceivedValue);
+        textViewSecondResult = (TextView)findViewById(R.id.textViewSecondResult);
 
         Bundle bundle = getIntent().getExtras();
-        textViewSecondReceivedValue.setText(bundle.getString("ValueFromFirstActivity", "No Data"));
+        if(bundle != null)
+            editTextSecondValue.setText(bundle.getString("ValueFromFirstActivity", "No Data"));
     }
 
     @Override
@@ -37,6 +40,25 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent = new Intent(this, ThirdActivity.class);
         bundle.putString("ValueFromSecondActivity", editTextSecondValue.getText().toString());
         intent.putExtras(bundle);
-        startActivity(intent);
+        startActivityForResult(intent, Activity.RESULT_FIRST_USER);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Bundle bundle = data.getExtras();
+        String str = "Result Values: " + bundle.getString("resultFromThird", "No Data");
+        textViewSecondResult.setText(str);
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void finish() {
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putString("resultFromSecond", ((EditText)editTextSecondValue).getText().toString());
+        intent.putExtras(bundle);
+        setResult(Activity.RESULT_FIRST_USER, intent);
+        super.finish();
     }
 }

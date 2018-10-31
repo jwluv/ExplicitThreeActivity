@@ -6,4 +6,7 @@
     <string name="editTextFirstValue">Add value to send</string>
     <string name="editTextSecondValue">Add value to send</string>
     <string name="editTextThirdValue">Add value to send</string>
+    <string name="textViewFirstResult">Return Values</string>
+    <string name="textViewSecondResult">Return Values</string>
+    <string name="textViewThirdResult">Return Values</string>
 </resources>

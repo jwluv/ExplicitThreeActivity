@@ -1,6 +1,8 @@
 package com.lyna.www.explicitthreeactivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 
     Button buttonFirstToSecond;
     EditText editTextFirstValue;
-    TextView textViewFirstReceivedValue;
+    TextView textViewFirstResult;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +24,11 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         buttonFirstToSecond.setOnClickListener(this);
 
         editTextFirstValue = (EditText)findViewById(R.id.editTextFirstValue);
-        textViewFirstReceivedValue = (TextView)findViewById(R.id.textViewFirstReceivedValue);
+        textViewFirstResult = (TextView)findViewById(R.id.textViewFirstResult);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null)
-            textViewFirstReceivedValue.setText(bundle.getString("ValueFromThirdActivity", "No Data"));
+            textViewFirstResult.setText(bundle.getString("ValueFromThirdActivity", "No Data"));
     }
 
     @Override
@@ -35,6 +37,25 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(this, SecondActivity.class);
         bundle.putString("ValueFromFirstActivity", editTextFirstValue.getText().toString());
         intent.putExtras(bundle);
-        startActivity(intent);
+        startActivityForResult(intent, Activity.RESULT_FIRST_USER);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Bundle bundle = data.getExtras();
+        String str = "Result Values: " + bundle.getString("resultFromSecond", "No Data");
+        textViewFirstResult.setText(str);
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void finish() {
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putString("resultFromFirst", ((EditText)editTextFirstValue).getText().toString());
+        intent.putExtras(bundle);
+        setResult(Activity.RESULT_FIRST_USER, intent);
+        super.finish();
     }
 }
