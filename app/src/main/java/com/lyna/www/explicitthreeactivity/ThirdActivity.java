@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,36 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
         textViewThirdResult.setText(str);
 
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("onFunction()", "ThirdActivity: onStart()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("onFunction()", "ThirdActivity: onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("onFunction()", "ThirdActivity: onDestroy()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("onFunction()", "ThirdActivity: onPause()");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("onFunction()", "ThirdActivity: onRestart()");
     }
 
     @Override
